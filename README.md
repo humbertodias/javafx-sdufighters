@@ -17,6 +17,10 @@ Someday I will edit classes, rewrite them, and maybe add some new features.
 
 Nothing changed since May 2016.
 
+## License
+
+SDU Fighters is licensed under the terms of the MIT license.
+
 ## Requirements
 - **Java**: 21+
 - **Maven**: 3.6.0+
