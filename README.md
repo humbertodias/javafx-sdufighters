@@ -51,7 +51,7 @@ Nothing changed since May 2016.
     ```bash
     mvn javafx:run
     ```
-TODO
+![image](https://github.com/user-attachments/assets/8c75eb89-034f-4a52-a2be-b6fa56a4a7b2)
 
 ---
 
