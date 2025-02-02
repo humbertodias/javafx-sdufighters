@@ -1,3 +1,5 @@
+package sdufighters;
+
 import javafx.geometry.Rectangle2D;
 import javafx.scene.image.*;
 import javafx.scene.input.MouseEvent;
@@ -8,7 +10,7 @@ class Arena extends Pane {
     int chosen = 0;
 
     Arena() {
-        Image arenaspic = new Image(MortalKombat.class.getResource("res/ui/arenas.png").toString());
+        Image arenaspic = new Image(MortalKombat.class.getResource("/ui/arenas.png").toString());
         ImageView[] arenaspics = new ImageView[5];
         final int width = 400, height = 300;
         for (int i = 0; i < 5; i++) {

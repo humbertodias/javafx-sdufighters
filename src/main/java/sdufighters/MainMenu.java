@@ -1,3 +1,5 @@
+package sdufighters;
+
 import java.io.IOException;
 import java.io.*;
 import java.net.*;
@@ -14,17 +16,18 @@ import javafx.util.Duration;
 
 public class MainMenu extends Application {
 
-    private final Image iconpic = new Image(MortalKombat.class.getResource("res/icon.png").toString());
-    private final Image backgroundpic = new Image(MortalKombat.class.getResource("res/background.jpg").toString());
-    private final Image logopic = new Image(MortalKombat.class.getResource("res/ui/logo.png").toString());
-    private final Image oneplayerpic = new Image(MortalKombat.class.getResource("res/ui/oneplayer.png").toString());
-    private final Image twoplayersoffpic = new Image(MortalKombat.class.getResource("res/ui/twoplayersoff.png").toString());
-    private final Image twoplayersonpic = new Image(MortalKombat.class.getResource("res/ui/twoplayerson.png").toString());
-    private final Image trainingpic = new Image(MortalKombat.class.getResource("res/ui/training.png").toString());
-    private final Image optionspic = new Image(MortalKombat.class.getResource("res/ui/options.png").toString());
-    private final Image exitpic = new Image(MortalKombat.class.getResource("res/ui/exit.png").toString());
-    private final Image backpic = new Image(MortalKombat.class.getResource("res/ui/back.png").toString());
-    private final Image fightpic = new Image(MortalKombat.class.getResource("res/ui/fight.png").toString());
+    private Image iconpic;
+    private Image backgroundpic;
+    private Image logopic;
+    private Image oneplayerpic;
+    private Image twoplayersoffpic;
+    private Image twoplayersonpic;
+    private Image trainingpic;
+    private Image optionspic;
+    private Image exitpic;
+    private Image backpic;
+    private Image fightpic;
+
     private final int widthb = 1000;
     private final int heightb = 100;
     private final int x = 0;
@@ -423,7 +426,7 @@ public class MainMenu extends Application {
             twoplayerson.setViewport(new Rectangle2D(x, y3, widthb, heightb));
             isGame = true;
             game = new MortalKombat();
-            game.arena = new Image(MortalKombat.class.getResource("res/levels/arenaon.jpg").toString());
+            game.arena = new Image(MortalKombat.class.getResource("/levels/arenaon.jpg").toString());
             game.ariv.setImage(game.arena);
             game.sfxv = Float.parseFloat(opt.sfxvp.getText()) / 100;
             game.musicv = Float.parseFloat(opt.musicvp.getText()) / 100;
@@ -626,19 +629,19 @@ public class MainMenu extends Application {
             }
             switch (chosen) {
                 case 0:
-                    game.arena = new Image(MortalKombat.class.getResource("res/levels/arena1.jpg").toString());
+                    game.arena = new Image(MortalKombat.class.getResource("/levels/arena1.jpg").toString());
                     break;
                 case 1:
-                    game.arena = new Image(MortalKombat.class.getResource("res/levels/arena2.jpg").toString());
+                    game.arena = new Image(MortalKombat.class.getResource("/levels/arena2.jpg").toString());
                     break;
                 case 2:
-                    game.arena = new Image(MortalKombat.class.getResource("res/levels/arena3.jpg").toString());
+                    game.arena = new Image(MortalKombat.class.getResource("/levels/arena3.jpg").toString());
                     break;
                 case 3:
-                    game.arena = new Image(MortalKombat.class.getResource("res/levels/arena4.jpg").toString());
+                    game.arena = new Image(MortalKombat.class.getResource("/levels/arena4.jpg").toString());
                     break;
                 case 4:
-                    game.arena = new Image(MortalKombat.class.getResource("res/levels/arena5.jpg").toString());
+                    game.arena = new Image(MortalKombat.class.getResource("/levels/arena5.jpg").toString());
                     break;
             }
             game.ariv.setImage(game.arena);
@@ -1304,5 +1307,23 @@ public class MainMenu extends Application {
 
             }
         }
+    }
+
+    public MainMenu() {
+        initializeImages();
+    }
+
+    private void initializeImages() {
+        iconpic = new Image(getClass().getResource("/icon.png").toString());
+        backgroundpic = new Image(getClass().getResource("/background.jpg").toString());
+        logopic = new Image(getClass().getResource("/ui/logo.png").toString());
+        oneplayerpic = new Image(getClass().getResource("/ui/oneplayer.png").toString());
+        twoplayersoffpic = new Image(getClass().getResource("/ui/twoplayersoff.png").toString());
+        twoplayersonpic = new Image(getClass().getResource("/ui/twoplayerson.png").toString());
+        trainingpic = new Image(getClass().getResource("/ui/training.png").toString());
+        optionspic = new Image(getClass().getResource("/ui/options.png").toString());
+        exitpic = new Image(getClass().getResource("/ui/exit.png").toString());
+        backpic = new Image(getClass().getResource("/ui/back.png").toString());
+        fightpic = new Image(getClass().getResource("/ui/fight.png").toString());
     }
 }

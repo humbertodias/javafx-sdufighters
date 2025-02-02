@@ -1,31 +1,35 @@
+package sdufighters;
+
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.*;
+import javafx.scene.media.AudioClip;
 import javafx.scene.text.Font;
 import java.util.Random;
 
 class MortalKombat extends Pane {
 
-    private final Image toRight1 = new Image(MortalKombat.class.getResource("res/sprites/sprite1toright.png").toString());
-    private final Image toLeft1 = new Image(MortalKombat.class.getResource("res/sprites/sprite1toleft.png").toString());
-    private final Image toRight2 = new Image(MortalKombat.class.getResource("res/sprites/sprite2toright.png").toString());
-    private final Image toLeft2 = new Image(MortalKombat.class.getResource("res/sprites/sprite2toleft.png").toString());
-    Image arena;
-    final ImageView ariv = new ImageView(arena);
-    private final Image finishhim = new Image(MortalKombat.class.getResource("res/ui/finishhim.png").toString());
-    private final Image p1 = new Image(MortalKombat.class.getResource("res/ui/player1win.png").toString());
-    private final Image p2 = new Image(MortalKombat.class.getResource("res/ui/player2win.png").toString());
+    protected Image toRight1;
+    protected Image toLeft1;
+    protected Image toRight2;
+    protected Image toLeft2;
+    protected Image arena;
+    protected ImageView ariv;
+    protected Image finishhim;
+    protected Image p1;
+    protected Image p2;
 
-    private final String backmusicpath = MortalKombat.class.getResource("res/sfx/music.mp3").toString();
-    private final String fightpath = MortalKombat.class.getResource("res/sfx/fight.mp3").toString();
-    private final String finishhimpath = MortalKombat.class.getResource("res/sfx/finishhim.mp3").toString();
-    private final String hitpath = MortalKombat.class.getResource("res/sfx/hit.mp3").toString();
-    private final String ishitpath = MortalKombat.class.getResource("res/sfx/ishit.mp3").toString();
-    final String punchpath = MortalKombat.class.getResource("res/sfx/punching.mp3").toString();
-    final String kickpath = MortalKombat.class.getResource("res/sfx/kicking.mp3").toString();
-    final String jumppath = MortalKombat.class.getResource("res/sfx/jump.mp3").toString();
+    protected String backmusicpath;
+    protected String fightpath;
+    protected String finishhimpath;
+    protected String hitpath;
+    protected String ishitpath;
+    protected String punchpath;
+    protected String kickpath;
+    protected String jumppath;
+
 
     private final Label player1 = new Label("Player 1");
     final Label player2 = new Label("Player 2");
@@ -38,8 +42,8 @@ class MortalKombat extends Pane {
     final ProgressBar health2 = new ProgressBar();
     private final Thread game;
 
-    private final Media backmusic = new Media(backmusicpath);
-    private final MediaPlayer backmusicmp = new MediaPlayer(backmusic);
+    private Media backmusic;
+    private MediaPlayer backmusicmp;
 
     double x = 0;
     double y = 0;
@@ -427,7 +431,7 @@ class MortalKombat extends Pane {
     }
 
     public MortalKombat() {
-
+        initializeResources();
         name = "player1";
         tBeginS = System.currentTimeMillis();
         ariv.setViewport(new Rectangle2D(xb, yb, widthb, heightb));
@@ -1413,5 +1417,32 @@ class MortalKombat extends Pane {
             }
         });
         game.start();
+    }
+
+    private void initializeResources() {
+        toRight1 = new Image(getClass().getResource("/sprites/sprite1toright.png").toString());
+        toLeft1 = new Image(getClass().getResource("/sprites/sprite1toleft.png").toString());
+        toRight2 = new Image(getClass().getResource("/sprites/sprite2toright.png").toString());
+        toLeft2 = new Image(getClass().getResource("/sprites/sprite2toleft.png").toString());
+
+        arena = new Image(getClass().getResource("/sprites/arena.png").toString()); // Defina um caminho válido
+        ariv = new ImageView(arena);
+
+        finishhim = new Image(getClass().getResource("/ui/finishhim.png").toString());
+        p1 = new Image(getClass().getResource("/ui/player1win.png").toString());
+        p2 = new Image(getClass().getResource("/ui/player2win.png").toString());
+
+        backmusicpath = getClass().getResource("/sfx/music.mp3").toString();
+        fightpath = getClass().getResource("/sfx/fight.mp3").toString();
+        finishhimpath = getClass().getResource("/sfx/finishhim.mp3").toString();
+        hitpath = getClass().getResource("/sfx/hit.mp3").toString();
+        ishitpath = getClass().getResource("/sfx/ishit.mp3").toString();
+        punchpath = getClass().getResource("/sfx/punching.mp3").toString();
+        kickpath = getClass().getResource("/sfx/kicking.mp3").toString();
+        jumppath = getClass().getResource("/sfx/jump.mp3").toString();
+
+        backmusic = new Media(backmusicpath);
+        backmusicmp = new MediaPlayer(backmusic);
+    
     }
 }

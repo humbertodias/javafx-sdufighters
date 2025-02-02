@@ -1,3 +1,5 @@
+package sdufighters;
+
 import javafx.scene.control.*;
 import javafx.scene.image.*;
 import javafx.scene.layout.*;
@@ -10,7 +12,7 @@ class Options extends Pane {
     Options() {
         HBox sfx = new HBox();
         HBox music = new HBox();
-        Image sfxpic = new Image(MortalKombat.class.getResource("res/ui/sfxvolume.png").toString());
+        Image sfxpic = new Image(MortalKombat.class.getResource("/ui/sfxvolume.png").toString());
         ImageView sfxv = new ImageView(sfxpic);
         sfxv.setFitHeight(33);
         sfxv.setFitWidth(200);
@@ -26,7 +28,7 @@ class Options extends Pane {
         sfxvol.setPrefSize(400, 50);
         sfxvp.setStyle("-fx-text-fill: white;");
         sfx.getChildren().addAll(sfxv, sfxvol, sfxvp);
-        Image musicpic = new Image(MortalKombat.class.getResource("res/ui/musicvolume.png").toString());
+        Image musicpic = new Image(MortalKombat.class.getResource("/ui/musicvolume.png").toString());
         ImageView musicv = new ImageView(musicpic);
         musicv.setFitHeight(33);
         musicv.setFitWidth(200);

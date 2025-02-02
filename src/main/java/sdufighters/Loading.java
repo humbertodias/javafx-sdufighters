@@ -1,10 +1,12 @@
+package sdufighters;
+
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.*;
 import javafx.scene.layout.*;
 
 class Loading extends Pane {
 
-    private Image logopic = new Image(MortalKombat.class.getResource("res/ui/loadinglogo.png").toString());
+    private Image logopic = new Image(MortalKombat.class.getResource("/ui/loadinglogo.png").toString());
     ImageView logo = new ImageView(logopic);
     ProgressBar progress = new ProgressBar();
 

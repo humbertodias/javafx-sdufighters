@@ -12,3 +12,36 @@ Nothing changed since May 2016.
 ## License
 
 SDU Fighters is licensed under the terms of the MIT license.
+
+
+## How to run
+```shell
+sdk install java 21.0.6.fx-zulu
+sdk install maven 3.6.0
+```
+### Use
+```shell
+sdk use java 21.0.6.fx-zulu
+sdk use maven 3.6.0
+```
+### Javafx run
+```shell
+mvn clean compile
+mvn javafx:run
+```
+
+### Run debug
+```shell
+mvn clean package
+java -jar -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005 target/sdufighters-1.0.jar
+```
+
+
+
+Distributing the Application
+
+To create a platform-specific package (such as .app for macOS or .exe for Windows), use the jlink goal:
+```shell
+mvn javafx:jlink
+```
+The generated package can be found in the target directory (e.g., target/app.zip).
